@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    
+    <form action="" method="post">
+      <h1>Añadir contacto</h1>
+      <table>
+      <tr><td>
+      <label for="">Nombre: </label>
+      <input type="text" name="nombre">
+      </td><td>
+      <label for="">Edad: </label>
+      <input type="text" name="edad">
+      </td></tr>
+      <tr><td>
+      <label for="">Correo: </label>
+      <input type="text" name="correo">
+      </td><td>
+      <label for="">Domicilio: </label>
+      <input type="text" name="domicilio">
+      </td></tr>
+      <tr><td>
+      <label for="">Sueldo: </label>
+      <input type="text" name="sueldo">
+      </td></tr>
+      <tr><td>
+        <label for="">Foto: </label>
+        <input type="file" name="foto">
+        </td></tr>
+      <tr>
+      <td><input type="submit" value="Añadir"></td>
+      <td><input type="reset" value="Cancelar"></td>
+      </tr>
+      </table>
+    </form>
+
+    <div style="margin: auto; margin-top:10px;">
+    <h1 style="font-weight:bold;">Lista de contactos</h1>
+    <div>
+      <table style="border: 1px solid; border-radius:5px; margin-top:10px;">
+        <tr style="text-align: center;font-weight:bold;">
+          <td style="text-align: center;font-weight:bold;" >Foto</td>
+          <td style="text-align: center;font-weight:bold;" >Nombre</td>
+          <td style="text-align: center;font-weight:bold;" >Edad</td>
+          <td style="text-align: center;font-weight:bold;" >Correo</td>
+          <td style="text-align: center;font-weight:bold;" >Domicilio</td>
+          <td style="text-align: center;font-weight:bold;" >Sueldo</td>
+          <td style="text-align: center;font-weight:bold;" >Borrar</td>
+        </tr>
+        <tr v-for="contacto in contactos" style="text-align: center;">
+          <img src="img/persona1.png" width="50px" height="50px"/>
+          <td><img src="{{'contacto.foto'}}" width="50px" height="50px"/></td>
+          <td>{{contacto.nombre}}</td>
+          <td>{{contacto.edad}}</td>
+          <td>{{contacto.correo}}</td>
+          <td>{{contacto.domicilio}}</td>
+          <td>{{contacto.sueldo}}</td>
+          <td>
+            <button type="button" class="btn-delete" >Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript">
+
+        new Vue({
+          el:'div',
+          data:{
+            contactos:[
+            {foto:'img/persona1.png', nombre:'Martin', edad:21, correo:'martinx@gmail.com', domicilio:'Chosica', sueldo:2500},
+            
+            ],
+          }
+        });
+        
+    </script>
+  </body>
+</html>
